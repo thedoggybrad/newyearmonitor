@@ -117,32 +117,6 @@ body {
     <div id="current-time"></div>
     <div id="countdown"></div>
 </div>
-
-  <script>
-    let wakeLock = null;
-
-    async function enableWakeLock() {
-      try {
-        // Requesting wake lock to keep the screen on
-        wakeLock = await navigator.wakeLock.request('screen');
-        wakeLock.addEventListener('release', () => {
-          console.log('Wake lock released');
-        });
-        console.log('Wake lock acquired');
-      } catch (err) {
-        console.error('Wake lock request failed:', err);
-      }
-    }
-
-    // If the page is unloaded, release the wake lock
-    window.addEventListener('unload', () => {
-      if (wakeLock !== null) {
-        wakeLock.release();
-        console.log('Wake lock released on unload');
-      }
-    });
-  </script>
-
 </body>
 </html>
 
