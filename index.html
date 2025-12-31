@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Year Monitor</title>
+<script>
+    // JavaScript for real-time clock update, countdown, and redirection
+    function updateClock() {
+        var currentTime = new Date();
+        var targetDate = new Date('2026-01-01 00:00:00'); 
+        // For New Year 2026 2026-01-01 00:00:00
+	// For New Year 2027 2027-01-01 00:00:00
+	// For New Year 2028 2028-01-01 00:00:00
+	// For New Year 2029 2029-01-01 00:00:00
+        // For New Year 2030 2030-01-01 00:00:00
+
+        // Calculate time difference in milliseconds
+        var timeDifference = targetDate - currentTime;
+
+        // Calculate days, hours, minutes, and seconds
+        var days = Math.max(Math.floor(timeDifference / (1000 * 60 * 60 * 24)), 0);
+        var hours = Math.max(Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)), 0);
+        var minutes = Math.max(Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60)), 0);
+        var seconds = Math.max(Math.floor((timeDifference % (1000 * 60)) / 1000), 0);
+
+        // Format the current date like: December 2, 2025
+        var formattedDate = currentTime.toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        });
+
+        // Format the current time
+        var formattedTime = currentTime.toLocaleTimeString('en-US');
+
+        // Display the current date and time
+        document.getElementById('current-time').innerHTML =
+            "<p>Current Time and Date:<br>" + formattedDate + "&nbsp;" + formattedTime + "</p>";
+
+        // If the countdown has reached zero, display a message but still keep the countdown running
+        if (timeDifference <= 0) {
+            document.getElementById('countdown').innerHTML = 
+                "<h1>Happy New Year 2026!</h1>";
+        } else {
+            // Construct the countdown string dynamically based on the values
+            var countdownString = "Welcoming 2026 in:<br>";
+
+            // Only show days if greater than 0
+            if (days > 0) {
+                countdownString += days + " day(s), ";
+            }
+
+            // Only show hours if greater than 0
+            if (hours > 0) {
+                countdownString += hours + " hour(s), ";
+            }
+
+            // Only show minutes if greater than 0
+            if (minutes > 0) {
+                countdownString += minutes + " minute(s), ";
+            }
+
+            // Always show seconds
+            countdownString += seconds + " second(s)";
+
+            // Update countdown
+            document.getElementById('countdown').innerHTML = "<p>" + countdownString + "</p>";
+        }
+    }
+
+    // Update time every millisecond
+    setInterval(updateClock, 1);
+</script>
+
+<style>
+html, body {
+    height: 100%; /* Take up full viewport height */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+}
+
+body {
+    background-color: #3D3B40;
+    background-image: url('bg.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;  
+    background-position: top center;
+    background-size: cover;
+    backdrop-filter: blur(100px);
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    user-select: none;
+    text-align: center;
+}
+
+#countdown {
+    font-size: 64px;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+#current-time {
+    font-size: 64px;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+</style>
+
+</head>
+<body>
+<div>
+    <div id="current-time"></div>
+    <div id="countdown"></div>
+</div>
+</body>
+</html>
