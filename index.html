@@ -4,6 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>New Year Monitor</title>
+    <script src="https://cdn.jsdelivr.net/npm/nosleep.js@latest"></script>
+    <script>
+//NoSleep.Js Implementation document.addEventListener('DOMContentLoaded', function() {
+            var noSleep = new NoSleep();
+            try {
+                // Attempt to enable NoSleep right after the page loads
+                noSleep.enable();
+                console.log("NoSleep enabled on page load!");
+            } catch (e) {
+                // If this fails, let the user know they need to interact with the page
+                console.log("Unable to enable NoSleep automatically. User interaction required.");
+            }
+        });
+    </script>
 <script>
     // JavaScript for real-time clock update, countdown, and redirection
     function updateClock() {
