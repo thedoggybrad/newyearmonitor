@@ -15,7 +15,7 @@
     // JavaScript for real-time clock update, countdown, and redirection
     function updateClock() {
         var currentTime = new Date();
-        var targetDate = new Date('2026-01-01 00:00:00'); 
+        var targetDate = new Date('2027-01-01 00:00:00'); 
         // For New Year 2026 set 2026-01-01 00:00:00
 	    // For New Year 2027 set 2027-01-01 00:00:00
 	    // For New Year 2028 set 2028-01-01 00:00:00
@@ -48,10 +48,10 @@
         // If the countdown has reached zero, display a message but still keep the countdown running
         if (timeDifference <= 0) {
             document.getElementById('countdown').innerHTML = 
-                "<h1>Happy New Year 2026!</h1>";
+                "<h1>Happy New Year 2027!</h1>";
         } else {
             // Construct the countdown string dynamically based on the values
-            var countdownString = "Welcoming 2026 in:<br>";
+            var countdownString = "Welcoming 2027 in:<br>";
 
             // Only show days if greater than 0
             if (days > 0) {
